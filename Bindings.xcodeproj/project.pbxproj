@@ -13,7 +13,8 @@
 		945B957516D0F543005DD328 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B957416D0F543005DD328 /* SenTestingKit.framework */; };
 		945B957816D0F543005DD328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B956516D0F543005DD328 /* Foundation.framework */; };
 		945B957B16D0F543005DD328 /* libBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B956216D0F543005DD328 /* libBindings.a */; };
-		945B959216D0F61B005DD328 /* BNDBindingsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B958F16D0F61B005DD328 /* BNDBindingsSpec.m */; };
+		945B959216D0F61B005DD328 /* BNDBindingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B958F16D0F61B005DD328 /* BNDBindingSpec.m */; };
+		945B959916D118FF005DD328 /* BNDBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B959816D118FF005DD328 /* BNDBinding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +47,11 @@
 		945B956A16D0F543005DD328 /* Bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bindings.h; sourceTree = "<group>"; };
 		945B957316D0F543005DD328 /* Specs.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		945B957416D0F543005DD328 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		945B958F16D0F61B005DD328 /* BNDBindingsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDBindingsSpec.m; sourceTree = "<group>"; };
+		945B958F16D0F61B005DD328 /* BNDBindingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDBindingSpec.m; sourceTree = "<group>"; };
 		945B959016D0F61B005DD328 /* BNDSpecHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDSpecHelper.pch; sourceTree = "<group>"; };
 		945B959116D0F61B005DD328 /* Specs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Specs-Info.plist"; sourceTree = "<group>"; };
+		945B959716D118FF005DD328 /* BNDBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDBinding.h; sourceTree = "<group>"; };
+		945B959816D118FF005DD328 /* BNDBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDBinding.m; sourceTree = "<group>"; };
 		F89B7790E455455BB5BFA50D /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -109,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				945B956A16D0F543005DD328 /* Bindings.h */,
+				945B959716D118FF005DD328 /* BNDBinding.h */,
+				945B959816D118FF005DD328 /* BNDBinding.m */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -135,7 +140,7 @@
 		945B959516D0F79E005DD328 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				945B958F16D0F61B005DD328 /* BNDBindingsSpec.m */,
+				945B958F16D0F61B005DD328 /* BNDBindingSpec.m */,
 			);
 			name = Unit;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945B959916D118FF005DD328 /* BNDBinding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				945B959216D0F61B005DD328 /* BNDBindingsSpec.m in Sources */,
+				945B959216D0F61B005DD328 /* BNDBindingSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
