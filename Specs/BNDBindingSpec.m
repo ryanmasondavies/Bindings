@@ -5,7 +5,7 @@ __block NSString            *sourceKeyPath;
 __block NSMutableDictionary *destination;
 __block NSString            *destinationKeyPath;
 __block BNDBinding          *binding;
-__block OCMockObject        *mockTrigger;
+__block id                   mockTrigger;
 
 before(^{
     sourceKeyPath = @"name";
@@ -16,11 +16,31 @@ before(^{
     mockTrigger = [OCMockObject niceMockForClass:[BNDTrigger class]];
 });
 
+when(@"bound", ^{
+    it(@"starts firing triggers", ^{
+        [binding addTrigger:mockTrigger];
+        [[mockTrigger expect] startFiring];
+        [binding bind];
+        [mockTrigger verify];
+    });
+});
+
 when(@"a trigger fires", ^{
     it(@"sets the value of the destination's property to the new value", ^{
         source[sourceKeyPath] = @"new value";
         [binding triggerDidFire:(BNDTrigger *)mockTrigger];
+        NSAssert(destination[destinationKeyPath], @"");
         [[destination[destinationKeyPath] should] beEqualTo:@"new value"];
+    });
+});
+
+when(@"unbound", ^{
+    it(@"stops firing triggers", ^{
+        [binding addTrigger:mockTrigger];
+        [binding bind];
+        [[mockTrigger expect] stopFiring];
+        [binding unbind];
+        [mockTrigger verify];
     });
 });
 

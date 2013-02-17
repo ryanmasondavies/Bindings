@@ -13,6 +13,12 @@
 
 - (id)initWithSource:(id)source sourceKeyPath:(NSString *)sourceKeyPath destination:(id)destination destinationKeyPath:(NSString *)destinationKeyPath;
 
+- (void)bind;
+- (void)unbind;
+
+- (void)addTrigger:(BNDTrigger *)trigger;
+- (void)removeTrigger:(BNDTrigger *)trigger;
+
 @property (strong, nonatomic, readonly) id source;
 @property (strong, nonatomic, readonly) id destination;
 @property (copy, nonatomic, readonly) NSString *sourceKeyPath;
