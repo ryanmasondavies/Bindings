@@ -5,3 +5,8 @@ target 'Unit Specs' do
   pod 'Posit'
   pod 'OCMock'
 end
+
+target 'Functional Specs' do
+  pod 'Specify'
+  pod 'Posit'
+end

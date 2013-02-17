@@ -18,12 +18,64 @@
 			<string>0</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-Unit Specs.a</string>
 			<key>path</key>
 			<string>libPods-Unit Specs.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>314664514FC241DB83E308F5</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods-Functional Specs.a</string>
+			<key>path</key>
+			<string>libPods-Functional Specs.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3953ABF134224B0390AF39CC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Functional Specs.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods-Functional Specs.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>7B5BE43383CE4E04B8BC7576</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-Functional Specs-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
 		</dict>
 		<key>7FE1FEAE0C44497E8EEB7979</key>
 		<dict>
@@ -46,9 +98,11 @@
 			<array>
 				<string>945B956716D0F543005DD328</string>
 				<string>945B95BF16D16E1A005DD328</string>
+				<string>945B95E116D16E99005DD328</string>
 				<string>945B956416D0F543005DD328</string>
 				<string>945B956316D0F543005DD328</string>
 				<string>7FE1FEAE0C44497E8EEB7979</string>
+				<string>3953ABF134224B0390AF39CC</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -92,6 +146,7 @@
 			<array>
 				<string>945B956116D0F543005DD328</string>
 				<string>945B957216D0F543005DD328</string>
+				<string>945B95CC16D16E69005DD328</string>
 			</array>
 		</dict>
 		<key>945B955D16D0F543005DD328</key>
@@ -199,6 +254,7 @@
 			<array>
 				<string>945B956216D0F543005DD328</string>
 				<string>945B957316D0F543005DD328</string>
+				<string>945B95DF16D16E69005DD328</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -214,6 +270,7 @@
 				<string>945B956516D0F543005DD328</string>
 				<string>945B957416D0F543005DD328</string>
 				<string>13BD0572C606415381A29570</string>
+				<string>314664514FC241DB83E308F5</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -966,14 +1023,349 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>945B95CC16D16E69005DD328</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>945B95DC16D16E69005DD328</string>
+			<key>buildPhases</key>
+			<array>
+				<string>945B95CF16D16E69005DD328</string>
+				<string>945B95D416D16E69005DD328</string>
+				<string>945B95D916D16E69005DD328</string>
+				<string>945B95DA16D16E69005DD328</string>
+				<string>945B95DB16D16E69005DD328</string>
+				<string>7B5BE43383CE4E04B8BC7576</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>945B95CD16D16E69005DD328</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Functional Specs</string>
+			<key>productName</key>
+			<string>BindingsTests</string>
+			<key>productReference</key>
+			<string>945B95DF16D16E69005DD328</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle</string>
+		</dict>
+		<key>945B95CD16D16E69005DD328</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>945B956116D0F543005DD328</string>
+			<key>targetProxy</key>
+			<string>945B95CE16D16E69005DD328</string>
+		</dict>
+		<key>945B95CE16D16E69005DD328</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>945B955A16D0F543005DD328</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>945B956116D0F543005DD328</string>
+			<key>remoteInfo</key>
+			<string>Bindings</string>
+		</dict>
+		<key>945B95CF16D16E69005DD328</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>945B95D016D16E69005DD328</string>
+				<string>945B95D116D16E69005DD328</string>
+				<string>945B95D216D16E69005DD328</string>
+				<string>945B95D316D16E69005DD328</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>945B95D016D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B95C016D16E1A005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D116D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B95C116D16E1A005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D216D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B95C216D16E1A005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D316D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B95C316D16E1A005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D416D16E69005DD328</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>945B95D516D16E69005DD328</string>
+				<string>945B95D616D16E69005DD328</string>
+				<string>945B95D716D16E69005DD328</string>
+				<string>945B95D816D16E69005DD328</string>
+				<string>97877269543F48D29CC8D3AD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>945B95D516D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B957416D0F543005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D616D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B956516D0F543005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D716D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B956216D0F543005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D816D16E69005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>13BD0572C606415381A29570</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95D916D16E69005DD328</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>945B95E416D16E99005DD328</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>945B95DA16D16E69005DD328</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string># Run the unit tests in this test bundle.
+"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests"
+</string>
+		</dict>
+		<key>945B95DB16D16E69005DD328</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-Unit Specs-resources.sh"
+</string>
+		</dict>
+		<key>945B95DC16D16E69005DD328</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>945B95DD16D16E69005DD328</string>
+				<string>945B95DE16D16E69005DD328</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>945B95DD16D16E69005DD328</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>3953ABF134224B0390AF39CC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Functional Specs/BNDSpecHelper.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Functional Specs/Functional Specs-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>Functional Specs</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>octest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>945B95DE16D16E69005DD328</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>3953ABF134224B0390AF39CC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Functional Specs/BNDSpecHelper.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Functional Specs/Functional Specs-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>Functional Specs</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>octest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>945B95DF16D16E69005DD328</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Functional Specs.octest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>945B95E116D16E99005DD328</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>945B95E516D16E9E005DD328</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Functional Specs</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>945B95E216D16E99005DD328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>BNDSpecHelper.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>945B95E316D16E99005DD328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Functional Specs-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>945B95E416D16E99005DD328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>945B95E316D16E99005DD328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>945B95E516D16E9E005DD328</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>945B95E216D16E99005DD328</string>
+				<string>945B95E316D16E99005DD328</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>97877269543F48D29CC8D3AD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>314664514FC241DB83E308F5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict/>
+		</dict>
 		<key>E34548DA5F2E4A179EC2AED8</key>
 		<dict>
 			<key>fileRef</key>
 			<string>13BD0572C606415381A29570</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
 		</dict>
 		<key>FCCB3F619DC84DA8B74BDCE0</key>
 		<dict>
@@ -996,8 +1388,6 @@
 			<key>shellScript</key>
 			<string>"${SRCROOT}/Pods/Pods-Unit Specs-resources.sh"
 </string>
-			<key>showEnvVarsInLog</key>
-			<string>1</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
