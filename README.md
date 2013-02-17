@@ -20,7 +20,7 @@ The code for a simple binding might look like this:
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:[personVC person] sourceKeyPath:@"name" destination:[personVC textField] destinationKeyPath:@"text"];
     
     // Add a trigger to update the binding when KVO notifications are sent for person's name property
-    BNDTrigger *trigger = [[BNDKVOTrigger alloc] initWithObject:[personVC person] keyPath:@"name" delegate:binding];
+    BNDTrigger *trigger = [[BNDKVOTrigger alloc] initWithKeyPath:@"name" object:[personVC person] delegate:binding];
     [binding addTrigger:trigger];
     
     // Add to the VC
