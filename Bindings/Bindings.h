@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#import "BNDBindings.h"
 #import "BNDBinding.h"
 #import "BNDKVOTrigger.h"
 #import "BNDNotificationTrigger.h"
