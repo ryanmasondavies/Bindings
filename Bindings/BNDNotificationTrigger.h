@@ -10,12 +10,11 @@
 
 @interface BNDNotificationTrigger : BNDTrigger
 
-- (id)initWithDelegate:(id <BNDTriggerDelegate>)delegate notificationCenter:(NSNotificationCenter *)notificationCenter notificationName:(NSString *)notificationName sender:(id)sender;
+- (id)initWithNotificationCenter:(NSNotificationCenter *)notificationCenter notificationName:(NSString *)notificationName sender:(id)sender delegate:(id <BNDTriggerDelegate>)delegate;
 
 - (void)startFiring;
 - (void)stopFiring;
 
-@property (weak,   nonatomic, readonly) id <BNDTriggerDelegate> delegate;
 @property (strong, nonatomic, readonly) NSNotificationCenter *notificationCenter;
 @property (copy,   nonatomic, readonly) NSString *notificationName;
 @property (strong, nonatomic, readonly) id sender;

@@ -9,7 +9,6 @@
 #import "BNDNotificationTrigger.h"
 
 @interface BNDNotificationTrigger ()
-@property (weak,   nonatomic) id <BNDTriggerDelegate> delegate;
 @property (strong, nonatomic) NSNotificationCenter *notificationCenter;
 @property (copy,   nonatomic) NSString *notificationName;
 @property (strong, nonatomic) id sender;
@@ -17,13 +16,13 @@
 
 @implementation BNDNotificationTrigger
 
-- (id)initWithDelegate:(id <BNDTriggerDelegate>)delegate notificationCenter:(NSNotificationCenter *)notificationCenter notificationName:(NSString *)notificationName sender:(id)sender
+- (id)initWithNotificationCenter:(NSNotificationCenter *)notificationCenter notificationName:(NSString *)notificationName sender:(id)sender delegate:(id<BNDTriggerDelegate>)delegate
 {
     if (self = [self init]) {
-        self.delegate           = delegate;
         self.notificationCenter = notificationCenter;
         self.notificationName   = notificationName;
         self.sender             = sender;
+        self.delegate           = delegate;
     }
     return self;
 }

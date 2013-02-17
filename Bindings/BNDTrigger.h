@@ -14,4 +14,6 @@
 - (void)startFiring;
 - (void)stopFiring;
 
+@property (weak, nonatomic) id <BNDTriggerDelegate> delegate;
+
 @end

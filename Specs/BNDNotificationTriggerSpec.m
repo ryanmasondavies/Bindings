@@ -1,17 +1,17 @@
 SpecBegin(BNDNotificationTrigger)
 
-__block OCMockObject         *delegate;
 __block NSNotificationCenter *notificationCenter;
 __block NSString             *notificationName;
 __block NSObject             *sender;
+__block OCMockObject         *delegate;
 __block BNDTrigger           *trigger;
 
 before(^{
-    delegate = [OCMockObject mockForProtocol:@protocol(BNDTriggerDelegate)];
     notificationCenter = [[NSNotificationCenter alloc] init];
     notificationName = @"SomeNotification";
     sender = [[NSObject alloc] init];
-    trigger = [[BNDNotificationTrigger alloc] initWithDelegate:(id <BNDTriggerDelegate>)delegate notificationCenter:notificationCenter notificationName:notificationName sender:sender];
+    delegate = [OCMockObject mockForProtocol:@protocol(BNDTriggerDelegate)];
+    trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:notificationCenter notificationName:notificationName sender:sender delegate:(id <BNDTriggerDelegate>)delegate];
 });
 
 when(@"started", ^{
