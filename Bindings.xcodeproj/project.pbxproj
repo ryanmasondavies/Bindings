@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F295D01B03947EFB1AB78B1 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 713596FC109D4D59AFE99B35 /* libPods-Specs.a */; };
 		945B956616D0F543005DD328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B956516D0F543005DD328 /* Foundation.framework */; };
 		945B956B16D0F543005DD328 /* Bindings.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 945B956A16D0F543005DD328 /* Bindings.h */; };
-		945B956D16D0F543005DD328 /* Bindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B956C16D0F543005DD328 /* Bindings.m */; };
 		945B957516D0F543005DD328 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B957416D0F543005DD328 /* SenTestingKit.framework */; };
-		945B957716D0F543005DD328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B957616D0F543005DD328 /* UIKit.framework */; };
 		945B957816D0F543005DD328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B956516D0F543005DD328 /* Foundation.framework */; };
 		945B957B16D0F543005DD328 /* libBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B956216D0F543005DD328 /* libBindings.a */; };
-		945B958116D0F543005DD328 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 945B957F16D0F543005DD328 /* InfoPlist.strings */; };
-		945B958416D0F543005DD328 /* BindingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B958316D0F543005DD328 /* BindingsTests.m */; };
+		945B959216D0F61B005DD328 /* BNDBindingsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B958F16D0F61B005DD328 /* BNDBindingsSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,18 +40,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		713596FC109D4D59AFE99B35 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		945B956216D0F543005DD328 /* libBindings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBindings.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		945B956516D0F543005DD328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		945B956916D0F543005DD328 /* Bindings-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bindings-Prefix.pch"; sourceTree = "<group>"; };
 		945B956A16D0F543005DD328 /* Bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bindings.h; sourceTree = "<group>"; };
-		945B956C16D0F543005DD328 /* Bindings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bindings.m; sourceTree = "<group>"; };
-		945B957316D0F543005DD328 /* BindingsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BindingsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		945B957316D0F543005DD328 /* Specs.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		945B957416D0F543005DD328 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		945B957616D0F543005DD328 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		945B957E16D0F543005DD328 /* BindingsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BindingsTests-Info.plist"; sourceTree = "<group>"; };
-		945B958016D0F543005DD328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		945B958216D0F543005DD328 /* BindingsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingsTests.h; sourceTree = "<group>"; };
-		945B958316D0F543005DD328 /* BindingsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingsTests.m; sourceTree = "<group>"; };
+		945B958F16D0F61B005DD328 /* BNDBindingsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDBindingsSpec.m; sourceTree = "<group>"; };
+		945B959016D0F61B005DD328 /* BNDSpecHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDSpecHelper.pch; sourceTree = "<group>"; };
+		945B959116D0F61B005DD328 /* Specs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Specs-Info.plist"; sourceTree = "<group>"; };
+		F89B7790E455455BB5BFA50D /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +66,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				945B957516D0F543005DD328 /* SenTestingKit.framework in Frameworks */,
-				945B957716D0F543005DD328 /* UIKit.framework in Frameworks */,
 				945B957816D0F543005DD328 /* Foundation.framework in Frameworks */,
 				945B957B16D0F543005DD328 /* libBindings.a in Frameworks */,
+				5F295D01B03947EFB1AB78B1 /* libPods-Specs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +79,10 @@
 			isa = PBXGroup;
 			children = (
 				945B956716D0F543005DD328 /* Bindings */,
-				945B957C16D0F543005DD328 /* BindingsTests */,
+				945B958E16D0F61B005DD328 /* Specs */,
 				945B956416D0F543005DD328 /* Frameworks */,
 				945B956316D0F543005DD328 /* Products */,
+				F89B7790E455455BB5BFA50D /* Pods-Specs.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				945B956216D0F543005DD328 /* libBindings.a */,
-				945B957316D0F543005DD328 /* BindingsTests.octest */,
+				945B957316D0F543005DD328 /* Specs.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,7 +100,7 @@
 			children = (
 				945B956516D0F543005DD328 /* Foundation.framework */,
 				945B957416D0F543005DD328 /* SenTestingKit.framework */,
-				945B957616D0F543005DD328 /* UIKit.framework */,
+				713596FC109D4D59AFE99B35 /* libPods-Specs.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,37 +109,42 @@
 			isa = PBXGroup;
 			children = (
 				945B956A16D0F543005DD328 /* Bindings.h */,
-				945B956C16D0F543005DD328 /* Bindings.m */,
-				945B956816D0F543005DD328 /* Supporting Files */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
 		};
-		945B956816D0F543005DD328 /* Supporting Files */ = {
+		945B958E16D0F61B005DD328 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				945B956916D0F543005DD328 /* Bindings-Prefix.pch */,
+				945B959516D0F79E005DD328 /* Unit */,
+				945B959616D0F7A5005DD328 /* Functional */,
+				945B959416D0F634005DD328 /* Supporting files */,
 			);
-			name = "Supporting Files";
+			path = Specs;
 			sourceTree = "<group>";
 		};
-		945B957C16D0F543005DD328 /* BindingsTests */ = {
+		945B959416D0F634005DD328 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				945B958216D0F543005DD328 /* BindingsTests.h */,
-				945B958316D0F543005DD328 /* BindingsTests.m */,
-				945B957D16D0F543005DD328 /* Supporting Files */,
+				945B959016D0F61B005DD328 /* BNDSpecHelper.pch */,
+				945B959116D0F61B005DD328 /* Specs-Info.plist */,
 			);
-			path = BindingsTests;
+			name = "Supporting files";
 			sourceTree = "<group>";
 		};
-		945B957D16D0F543005DD328 /* Supporting Files */ = {
+		945B959516D0F79E005DD328 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				945B957E16D0F543005DD328 /* BindingsTests-Info.plist */,
-				945B957F16D0F543005DD328 /* InfoPlist.strings */,
+				945B958F16D0F61B005DD328 /* BNDBindingsSpec.m */,
 			);
-			name = "Supporting Files";
+			name = Unit;
+			sourceTree = "<group>";
+		};
+		945B959616D0F7A5005DD328 /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Functional;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,23 +167,24 @@
 			productReference = 945B956216D0F543005DD328 /* libBindings.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		945B957216D0F543005DD328 /* BindingsTests */ = {
+		945B957216D0F543005DD328 /* Specs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 945B958A16D0F543005DD328 /* Build configuration list for PBXNativeTarget "BindingsTests" */;
+			buildConfigurationList = 945B958A16D0F543005DD328 /* Build configuration list for PBXNativeTarget "Specs" */;
 			buildPhases = (
 				945B956E16D0F543005DD328 /* Sources */,
 				945B956F16D0F543005DD328 /* Frameworks */,
 				945B957016D0F543005DD328 /* Resources */,
 				945B957116D0F543005DD328 /* ShellScript */,
+				743992B14D904FAFA30EF2BB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				945B957A16D0F543005DD328 /* PBXTargetDependency */,
 			);
-			name = BindingsTests;
+			name = Specs;
 			productName = BindingsTests;
-			productReference = 945B957316D0F543005DD328 /* BindingsTests.octest */;
+			productReference = 945B957316D0F543005DD328 /* Specs.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -206,7 +209,7 @@
 			projectRoot = "";
 			targets = (
 				945B956116D0F543005DD328 /* Bindings */,
-				945B957216D0F543005DD328 /* BindingsTests */,
+				945B957216D0F543005DD328 /* Specs */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +219,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				945B958116D0F543005DD328 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		743992B14D904FAFA30EF2BB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Specs-resources.sh\"\n";
+		};
 		945B957116D0F543005DD328 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				945B956D16D0F543005DD328 /* Bindings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				945B958416D0F543005DD328 /* BindingsTests.m in Sources */,
+				945B959216D0F61B005DD328 /* BNDBindingsSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,17 +279,6 @@
 			targetProxy = 945B957916D0F543005DD328 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		945B957F16D0F543005DD328 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				945B958016D0F543005DD328 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		945B958516D0F543005DD328 /* Debug */ = {
@@ -334,8 +338,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Bindings.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bindings/Bindings-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -346,8 +348,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Bindings.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bindings/Bindings-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -356,14 +356,11 @@
 		};
 		945B958B16D0F543005DD328 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F89B7790E455455BB5BFA50D /* Pods-Specs.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bindings/Bindings-Prefix.pch";
-				INFOPLIST_FILE = "BindingsTests/BindingsTests-Info.plist";
+				GCC_PREFIX_HEADER = Specs/BNDSpecHelper.pch;
+				INFOPLIST_FILE = "Specs/Specs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -371,14 +368,11 @@
 		};
 		945B958C16D0F543005DD328 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F89B7790E455455BB5BFA50D /* Pods-Specs.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bindings/Bindings-Prefix.pch";
-				INFOPLIST_FILE = "BindingsTests/BindingsTests-Info.plist";
+				GCC_PREFIX_HEADER = Specs/BNDSpecHelper.pch;
+				INFOPLIST_FILE = "Specs/Specs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -403,14 +397,16 @@
 				945B958916D0F543005DD328 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		945B958A16D0F543005DD328 /* Build configuration list for PBXNativeTarget "BindingsTests" */ = {
+		945B958A16D0F543005DD328 /* Build configuration list for PBXNativeTarget "Specs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				945B958B16D0F543005DD328 /* Debug */,
 				945B958C16D0F543005DD328 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

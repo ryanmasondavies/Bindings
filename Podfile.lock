@@ -1,0 +1,17 @@
+
+PODS:
+- Inline (0.1.0)
+- Posit (0.0.2)
+- Specify (0.0.2):
+  - Inline (~> 0.1.0)
+
+DEPENDENCIES:
+- Posit
+- Specify
+
+SPEC CHECKSUMS:
+  Inline: f1af4456f99b23bbc9525c9ed1986edbe852e862
+  Posit: cc326d26411b57634b395cc09a1d897b7578a94c
+  Specify: 2f1a898f5643cbf3427c296b16064b2595f86413
+
+COCOAPODS: 0.16.1
