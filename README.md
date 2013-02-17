@@ -1,7 +1,7 @@
 Bindings
 ========
 
-Bindings is an iOS library inspired by Cocoa Bindings.
+An iOS library inspired by Cocoa Bindings.
 
 A binding defines a connection between a value on one object – the _source_ – and a value on another object: the _destination_.
 
@@ -15,6 +15,7 @@ The code for a simple binding might look like this:
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     RDPersonViewController *personVC = [storyboard instantiateInitialViewController];
     personVC.person = [[Person alloc] initWithName:@"Jimmy"];
+    personVC.bindings = [[BNDBindings alloc] init];
     
     // Create a bind between person's name attribute and the text field's text
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:[personVC person] sourceKeyPath:@"name" destination:[personVC textField] destinationKeyPath:@"text"];
@@ -24,9 +25,9 @@ The code for a simple binding might look like this:
     [binding addTrigger:trigger];
     
     // Add to the VC
-    personVC.bindings = [[BNDBindings alloc] initWithBinding:binding];
+    [[personVC bindings] addBinding:binding];
 
-The above code exerpt is incomplete without a reverse binding to ensure person's name matches the text field's text, however UITextField does not send KVO notifications when `[UITextField name]` is modified – it instead sends out an UITextFieldTextDidChangeNotification.
+The above code exerpt is incomplete without a reverse binding to ensure person's name matches the text field's text, however UITextField does not send KVO notifications when `[UITextField name]` is modified – it instead sends out an `UITextFieldTextDidChangeNotification`.
 
 A trigger can update the binding when a notification is received:
 
@@ -40,12 +41,12 @@ A trigger can update the binding when a notification is received:
     // Add it to the VC's bindings
     [[personVC bindings] addBinding:binding];
 
-When the trigger receives a UITextFieldTextDidChangeNotification, it will update person's name using the new text.
+When the trigger receives a `UITextFieldTextDidChangeNotification`, it will update person's name using the new text.
 
 Installation
 ============
 
-To install Bindings in your project, add it to your Podfile: `pod 'Bindings', '~> 0.1.0'`.
+To install Bindings in your project, add it to your Podfile: `pod 'Bindings', '~> 0.0.1'`.
 
 License
 =======
