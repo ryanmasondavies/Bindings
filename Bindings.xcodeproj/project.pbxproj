@@ -15,6 +15,9 @@
 		945B957B16D0F543005DD328 /* libBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B956216D0F543005DD328 /* libBindings.a */; };
 		945B959216D0F61B005DD328 /* BNDBindingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B958F16D0F61B005DD328 /* BNDBindingSpec.m */; };
 		945B959916D118FF005DD328 /* BNDBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B959816D118FF005DD328 /* BNDBinding.m */; };
+		945B959B16D122BA005DD328 /* BNDNotificationTriggerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B959A16D122BA005DD328 /* BNDNotificationTriggerSpec.m */; };
+		945B959E16D127DB005DD328 /* BNDTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B959D16D127DB005DD328 /* BNDTrigger.m */; };
+		945B95A216D1284E005DD328 /* BNDNotificationTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B95A116D1284E005DD328 /* BNDNotificationTrigger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,12 @@
 		945B959116D0F61B005DD328 /* Specs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Specs-Info.plist"; sourceTree = "<group>"; };
 		945B959716D118FF005DD328 /* BNDBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDBinding.h; sourceTree = "<group>"; };
 		945B959816D118FF005DD328 /* BNDBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDBinding.m; sourceTree = "<group>"; };
+		945B959A16D122BA005DD328 /* BNDNotificationTriggerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDNotificationTriggerSpec.m; sourceTree = "<group>"; };
+		945B959C16D127DB005DD328 /* BNDTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDTrigger.h; sourceTree = "<group>"; };
+		945B959D16D127DB005DD328 /* BNDTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDTrigger.m; sourceTree = "<group>"; };
+		945B959F16D127ED005DD328 /* BNDTriggerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNDTriggerDelegate.h; sourceTree = "<group>"; };
+		945B95A016D1284E005DD328 /* BNDNotificationTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDNotificationTrigger.h; sourceTree = "<group>"; };
+		945B95A116D1284E005DD328 /* BNDNotificationTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDNotificationTrigger.m; sourceTree = "<group>"; };
 		F89B7790E455455BB5BFA50D /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -114,6 +123,11 @@
 				945B956A16D0F543005DD328 /* Bindings.h */,
 				945B959716D118FF005DD328 /* BNDBinding.h */,
 				945B959816D118FF005DD328 /* BNDBinding.m */,
+				945B959F16D127ED005DD328 /* BNDTriggerDelegate.h */,
+				945B959C16D127DB005DD328 /* BNDTrigger.h */,
+				945B959D16D127DB005DD328 /* BNDTrigger.m */,
+				945B95A016D1284E005DD328 /* BNDNotificationTrigger.h */,
+				945B95A116D1284E005DD328 /* BNDNotificationTrigger.m */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -141,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				945B958F16D0F61B005DD328 /* BNDBindingSpec.m */,
+				945B959A16D122BA005DD328 /* BNDNotificationTriggerSpec.m */,
 			);
 			name = Unit;
 			sourceTree = "<group>";
@@ -265,6 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				945B959916D118FF005DD328 /* BNDBinding.m in Sources */,
+				945B959E16D127DB005DD328 /* BNDTrigger.m in Sources */,
+				945B95A216D1284E005DD328 /* BNDNotificationTrigger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				945B959216D0F61B005DD328 /* BNDBindingSpec.m in Sources */,
+				945B959B16D122BA005DD328 /* BNDNotificationTriggerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

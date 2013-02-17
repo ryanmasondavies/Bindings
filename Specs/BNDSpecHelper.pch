@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#import <Bindings/Bindings.h>
 #import <Specify/Specify.h>
 #import <Posit/Posit.h>
-#import <Bindings/Bindings.h>
+#import <OCMock/OCMock.h>

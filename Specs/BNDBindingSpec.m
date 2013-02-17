@@ -18,6 +18,11 @@ when(@"bound", ^{
             [[destination[@"name"] should] beEqualTo:@"new value"];
         });
     });
+    
+    when(@"a trigger fires", ^{
+        it(@"sets the value of the destination's property to the new value", ^{
+        });
+    });
 });
 
 when(@"unbound", ^{
@@ -29,6 +34,11 @@ when(@"unbound", ^{
             [source setValue:@"new value" forKey:@"name"];
             NSAssert(destination[@"name"], @"");
             [[destination[@"name"] shouldNot] beEqualTo:@"new value"];
+        });
+    });
+    
+    when(@"a trigger fires", ^{
+        it(@"does not set the value of the destination's property to the new value", ^{
         });
     });
 });

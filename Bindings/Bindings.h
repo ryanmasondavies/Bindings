@@ -7,3 +7,4 @@
 //
 
 #import "BNDBinding.h"
+#import "BNDNotificationTrigger.h"
