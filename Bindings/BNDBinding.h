@@ -7,13 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BNDTriggerDelegate.h"
 
-@interface BNDBinding : NSObject
+@interface BNDBinding : NSObject <BNDTriggerDelegate>
 
 - (id)initWithSource:(id)source sourceKeyPath:(NSString *)sourceKeyPath destination:(id)destination destinationKeyPath:(NSString *)destinationKeyPath;
-
-- (void)bind;
-- (void)unbind;
 
 @property (strong, nonatomic, readonly) id source;
 @property (strong, nonatomic, readonly) id destination;

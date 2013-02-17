@@ -1,45 +1,26 @@
 SpecBegin(BNDBinding)
 
 __block NSMutableDictionary *source;
+__block NSString            *sourceKeyPath;
 __block NSMutableDictionary *destination;
+__block NSString            *destinationKeyPath;
+__block BNDBinding          *binding;
+__block OCMockObject        *mockTrigger;
 
 before(^{
-    source = [[NSMutableDictionary alloc] initWithObjects:@[@"initial value"] forKeys:@[@"name"]];
-    destination = [[NSMutableDictionary alloc] initWithObjects:@[@"ancillary value"] forKeys:@[@"name"]];
+    sourceKeyPath = @"name";
+    source = [[NSMutableDictionary alloc] initWithObjects:@[@"initial value"] forKeys:@[sourceKeyPath]];
+    destinationKeyPath = @"name";
+    destination = [[NSMutableDictionary alloc] initWithObjects:@[@"old value"] forKeys:@[destinationKeyPath]];
+    binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:sourceKeyPath destination:destination destinationKeyPath:destinationKeyPath];
+    mockTrigger = [OCMockObject niceMockForClass:[BNDTrigger class]];
 });
 
-when(@"bound", ^{
-    when(@"the source property changes", ^{
-        it(@"sets the value of the destination's property to the new value", ^{
-            BNDBinding *binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:@"name" destination:destination destinationKeyPath:@"name"];
-            [binding bind];
-            [source setValue:@"new value" forKey:@"name"];
-            NSAssert(destination[@"name"], @"");
-            [[destination[@"name"] should] beEqualTo:@"new value"];
-        });
-    });
-    
-    when(@"a trigger fires", ^{
-        it(@"sets the value of the destination's property to the new value", ^{
-        });
-    });
-});
-
-when(@"unbound", ^{
-    when(@"the source property changes", ^{
-        it(@"does not set the value of the destination's property to the new value", ^{
-            BNDBinding *binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:@"name" destination:destination destinationKeyPath:@"name"];
-            [binding bind];
-            [binding unbind];
-            [source setValue:@"new value" forKey:@"name"];
-            NSAssert(destination[@"name"], @"");
-            [[destination[@"name"] shouldNot] beEqualTo:@"new value"];
-        });
-    });
-    
-    when(@"a trigger fires", ^{
-        it(@"does not set the value of the destination's property to the new value", ^{
-        });
+when(@"a trigger fires", ^{
+    it(@"sets the value of the destination's property to the new value", ^{
+        source[sourceKeyPath] = @"new value";
+        [binding triggerDidFire:(BNDTrigger *)mockTrigger];
+        [[destination[destinationKeyPath] should] beEqualTo:@"new value"];
     });
 });
 

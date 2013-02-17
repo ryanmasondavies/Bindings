@@ -29,19 +29,9 @@
     return self;
 }
 
-- (void)bind
+- (void)triggerDidFire:(BNDTrigger *)trigger
 {
-    [[self source] addObserver:self forKeyPath:[self sourceKeyPath] options:0 context:NULL];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    [[self destination] setValue:[[self source] valueForKeyPath:[self sourceKeyPath]] forKeyPath:[self destinationKeyPath]];
-}
-
-- (void)unbind
-{
-    [[self source] removeObserver:self forKeyPath:[self sourceKeyPath]];
+    [[self destination] setValue:[[self source] valueForKey:[self sourceKeyPath]] forKey:[self destinationKeyPath]];
 }
 
 @end
