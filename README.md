@@ -3,9 +3,11 @@ Bindings
 
 Bindings is an iOS library inspired by Cocoa Bindings.
 
-A binding defines a connection between a value on one object – the _source_ – and a value on another object: the _destination_. The destination's value will be updated whenever the source's changes.
+A binding defines a connection between a value on one object – the _source_ – and a value on another object: the _destination_.
 
 This pattern can simplify view controllers by entirely removing the need for glue code - code which updates views from the model or vice versa. It can also be used at the model layer to enforce relationships.
+
+Cocoa informs a client of value changes using different methods: KVO, target-action, notifications, and delegation. For this reason, a binding is made up of multiple _triggers_, where a trigger responds to any one of these methods.
 
 The code for a simple binding might look like this:
 
@@ -15,23 +17,24 @@ The code for a simple binding might look like this:
     personVC.person = [[Person alloc] initWithName:@"Jimmy"];
     
     // Create a bind between person's name attribute and the text field's text
-    // ensuring that the text field will always display the person's name
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:[personVC person] sourceKeyPath:@"name" destination:[personVC textField] destinationKeyPath:@"text"];
+    
+    // Add a trigger to update the binding when KVO notifications are sent for person's name property
+    BNDTrigger *trigger = [[BNDKVOTrigger alloc] initWithObject:[personVC person] keyPath:@"name" delegate:binding];
+    [binding addTrigger:trigger];
     
     // Add to the VC
     personVC.bindings = [[BNDBindings alloc] initWithBinding:binding];
 
-Certain elements of UIKit do not necessarily adhere to key-value observing, and opt for the target-action pattern, delegation, or notifications.
+The above code exerpt is incomplete without a reverse binding to ensure person's name matches the text field's text, however UITextField does not send KVO notifications when `[UITextField name]` is modified – it instead sends out an UITextFieldTextDidChangeNotification.
 
-UITextField, for example, does not send KVO notifications when `[UITextField name]` is modified – it instead sends out an UITextFieldTextDidChangeNotification. A _trigger_ can listen for notifications from a specific text field and tell the binding to update accordingly.
-
-Following on from the above code exerpt, a trigger can be added to update the person's name when the text field's content is changed:
+A trigger can update the binding when a notification is received:
 
     // Create a binding as normal
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:[personVC textField] sourceKeyPath:@"text" destination:[personVC person] destinationKeyPath:@"name"];
 
     // Create a trigger and add it to the binding
-    BNDTrigger *trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter] notificationName:UITextFieldTextDidChangeNotification sender:[personVC textField]];
+    BNDTrigger *trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter] notificationName:UITextFieldTextDidChangeNotification sender:[personVC textField] delegate:binding];
     [binding addTrigger:trigger];
 
     // Add it to the VC's bindings
