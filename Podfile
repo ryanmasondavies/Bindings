@@ -1,6 +1,6 @@
 platform :ios, '5.0'
 
-target 'Specs' do
+target 'Unit Specs' do
   pod 'Specify'
   pod 'Posit'
   pod 'OCMock'
