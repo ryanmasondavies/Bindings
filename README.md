@@ -1,9 +1,7 @@
 Bindings
 ========
 
-An iOS library inspired by Cocoa Bindings.
-
-A binding defines a connection between a value on one object – the _source_ – and a value on another object: the _destination_.
+A _binding_ defines a connection between a value on one object – the _source_ – and a value on another object: the _destination_.
 
 This pattern can simplify view controllers by entirely removing the need for glue code - code which updates views from the model or vice versa. It can also be used at the model layer to enforce relationships.
 
