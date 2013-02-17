@@ -23,20 +23,19 @@ The code for a simple binding might look like this:
 
 Certain elements of UIKit do not necessarily adhere to key-value observing, and opt for the target-action pattern, delegation, or notifications.
 
-For this purpose, a binding may be encapsulated within a _trigger_. A trigger can be treated in the same way as a binding, and will respond to the same methods. It is responsible for triggering an update to the bind whenever necessary - most often in the event of a notification.
+UITextField, for example, does not send KVO notifications when `[UITextField name]` is modified – it instead sends out an UITextFieldTextDidChangeNotification. A _trigger_ can listen for notifications from a specific text field and tell the binding to update accordingly.
 
-UITextField, for example, does not send KVO notifications when `[UITextField name]` is modified – it instead sends out an UITextFieldTextDidChangeNotification. A trigger can listen for notifications from a specific text field and tell the binding to update accordingly.
-
-Following on from the above code exerpt, a bind can be added to update the person's name when the text field's content is changed:
+Following on from the above code exerpt, a trigger can be added to update the person's name when the text field's content is changed:
 
     // Create a binding as normal
-    BNDBinding *triggeredBinding = [[BNDBinding alloc] initWithSource:[personVC textField] sourceKeyPath:@"text" destination:[personVC person] destinationKeyPath:@"name"];
+    BNDBinding *binding = [[BNDBinding alloc] initWithSource:[personVC textField] sourceKeyPath:@"text" destination:[personVC person] destinationKeyPath:@"name"];
 
-    // Wrap it in a notification trigger
-    triggeredBinding = [[BNDNotificationTrigger alloc] initWithBinding:triggeredBinding notificationCenter:[NSNotificationCenter defaultCenter] notificationName:UITextFieldTextDidChangeNotification sender:[personVC textField]];
+    // Create a trigger and add it to the binding
+    BNDTrigger *trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter] notificationName:UITextFieldTextDidChangeNotification sender:[personVC textField]];
+    [binding addTrigger:trigger];
 
     // Add it to the VC's bindings
-    [[personVC bindings] addBinding:triggeredBinding];
+    [[personVC bindings] addBinding:binding];
 
 When the trigger receives a UITextFieldTextDidChangeNotification, it will update person's name using the new text.
 
