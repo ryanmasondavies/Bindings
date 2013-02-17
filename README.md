@@ -18,9 +18,8 @@ The code for a simple binding might look like this:
     // ensuring that the text field will always display the person's name
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:[personVC person] sourceKeyPath:@"name" destination:[personVC textField] destinationKeyPath:@"text"];
     
-    // Add to the VC and activate
+    // Add to the VC
     personVC.bindings = [[BNDBindings alloc] initWithBinding:binding];
-    [binding bind];
 
 Certain elements of UIKit do not necessarily adhere to key-value observing, and opt for the target-action pattern, delegation, or notifications.
 
@@ -40,7 +39,6 @@ Following on from the above code exerpt, a bind can be added to update the perso
     [[personVC bindings] addBinding:triggeredBinding];
 
 When the trigger receives a UITextFieldTextDidChangeNotification, it will update person's name using the new text.
-
 
 Installation
 ============
