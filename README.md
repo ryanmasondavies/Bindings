@@ -44,7 +44,7 @@ When the trigger receives a `UITextFieldTextDidChangeNotification`, it will upda
 Installation
 ============
 
-To install Bindings in your project, add it to your Podfile: `pod 'Bindings', '~> 0.0.1'`.
+To install Bindings in your project, add it to your Podfile: `pod 'Bindings', '~> 0.1.0'`.
 
 License
 =======
