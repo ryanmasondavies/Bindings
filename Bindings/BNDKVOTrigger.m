@@ -28,12 +28,21 @@
 - (void)startFiring
 {
     [super startFiring];
-    [[self object] addObserver:self forKeyPath:[self keyPath] options:0 context:NULL];
+    [[self object] addObserver:self forKeyPath:[self keyPath] options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:NULL];
+}
+
+- (BOOL)haveValuesChanged:(NSDictionary *)change
+{
+    id oldValue = change[NSKeyValueChangeOldKey];
+    id newValue = change[NSKeyValueChangeNewKey];
+    return ([newValue isEqual:oldValue] == NO);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [[self delegate] triggerDidFire:self];
+    if ([self haveValuesChanged:change]) {
+        [[self delegate] triggerDidFire:self];
+    }
 }
 
 - (void)stopFiring

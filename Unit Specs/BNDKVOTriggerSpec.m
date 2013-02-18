@@ -25,6 +25,13 @@ when(@"started", ^{
         [object setValue:@"new value" forKey:keyPath];
         [delegate verify];
     });
+    
+    it(@"does not fire when the new value matches the old", ^{
+        [trigger startFiring];
+        [[delegate reject] triggerDidFire:OCMOCK_ANY];
+        [object setValue:@"old value" forKey:keyPath];
+        [delegate verify];
+    });
 });
 
 when(@"stopped", ^{
