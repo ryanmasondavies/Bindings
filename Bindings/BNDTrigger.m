@@ -12,6 +12,7 @@
 
 - (void)startFiring
 {
+    [[self delegate] triggerDidFire:self];
 }
 
 - (void)stopFiring

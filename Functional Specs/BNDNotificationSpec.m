@@ -16,13 +16,13 @@ NSString * const BNDNotificationModelNameDidChange = @"BNDNotificationModelNameD
 
 SpecBegin(BNDNotificationSpec)
 
-it(@"listens for notifications to update the destination's property", ^{
-    BNDBindings          *bindings;
-    BNDNotificationModel *source;
-    NSMutableDictionary  *destination;
-    NSString             *sourceKeyPath;
-    NSString             *destinationKeyPath;
-    
+__block BNDBindings          *bindings;
+__block BNDNotificationModel *source;
+__block NSMutableDictionary  *destination;
+__block NSString             *sourceKeyPath;
+__block NSString             *destinationKeyPath;
+
+before(^{
     bindings           = [[BNDBindings alloc] init];
     source             = [[BNDNotificationModel alloc] init];
     destination        = [NSMutableDictionary dictionary];
@@ -34,9 +34,16 @@ it(@"listens for notifications to update the destination's property", ^{
     
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:sourceKeyPath destination:destination destinationKeyPath:destinationKeyPath];
     BNDTrigger *trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter] notificationName:BNDNotificationModelNameDidChange sender:source delegate:binding];
+    
     [binding addTrigger:trigger];
     [bindings addBinding:binding];
-    
+});
+
+it(@"performs an initial update to ensure values always match", ^{
+    [[destination[destinationKeyPath] should] beEqualTo:@"Jimmy"];
+});
+
+it(@"listens for notifications to update the destination's property", ^{
     [source setValue:@"Bobby" forKey:sourceKeyPath];
     NSAssert(destination[destinationKeyPath], @"");
     [[destination[destinationKeyPath] should] beEqualTo:@"Bobby"];

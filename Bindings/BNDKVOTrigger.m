@@ -27,6 +27,7 @@
 
 - (void)startFiring
 {
+    [super startFiring];
     [[self object] addObserver:self forKeyPath:[self keyPath] options:0 context:NULL];
 }
 

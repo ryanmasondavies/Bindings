@@ -1,12 +1,12 @@
 SpecBegin(BNDKVOSpec)
 
-it(@"listens for KVO events to update the destination's property", ^{
-    BNDBindings         *bindings;
-    NSMutableDictionary *source;
-    NSMutableDictionary *destination;
-    NSString            *sourceKeyPath;
-    NSString            *destinationKeyPath;
-    
+__block BNDBindings         *bindings;
+__block NSMutableDictionary *source;
+__block NSMutableDictionary *destination;
+__block NSString            *sourceKeyPath;
+__block NSString            *destinationKeyPath;
+
+before(^{
     bindings           = [[BNDBindings alloc] init];
     source             = [NSMutableDictionary dictionary];
     destination        = [NSMutableDictionary dictionary];
@@ -18,9 +18,16 @@ it(@"listens for KVO events to update the destination's property", ^{
     
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:sourceKeyPath destination:destination destinationKeyPath:destinationKeyPath];
     BNDTrigger *trigger = [[BNDKVOTrigger alloc] initWithKeyPath:sourceKeyPath object:source delegate:binding];
+    
     [binding addTrigger:trigger];
     [bindings addBinding:binding];
-    
+});
+
+it(@"performs an initial update to ensure values always match", ^{
+    [[destination[destinationKeyPath] should] beEqualTo:@"Jimmy"];
+});
+
+it(@"updates the destination's property when the source's changes", ^{
     source[sourceKeyPath] = @"Bobby";
     [[destination[destinationKeyPath] should] beEqualTo:@"Bobby"];
 });

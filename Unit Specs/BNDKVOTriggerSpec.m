@@ -8,16 +8,19 @@ __block BNDTrigger          *trigger;
 before(^{
     keyPath = @"name";
     object = [NSMutableDictionary dictionaryWithObject:@"old value" forKey:keyPath];
-    delegate = [OCMockObject mockForProtocol:@protocol(BNDTriggerDelegate)];
+    delegate = [OCMockObject niceMockForProtocol:@protocol(BNDTriggerDelegate)];
     trigger = [[BNDKVOTrigger alloc] initWithKeyPath:keyPath object:object delegate:(id <BNDTriggerDelegate>)delegate];
 });
 
 when(@"started", ^{
-    before(^{
+    it(@"fires once to assign the initial value", ^{
+        [[delegate expect] triggerDidFire:trigger];
         [trigger startFiring];
+        [delegate verify];
     });
     
     it(@"fires when the object's property changes", ^{
+        [trigger startFiring];
         [[delegate expect] triggerDidFire:trigger];
         [object setValue:@"new value" forKey:keyPath];
         [delegate verify];

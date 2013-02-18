@@ -29,6 +29,7 @@
 
 - (void)startFiring
 {
+    [super startFiring];
     [[self notificationCenter] addObserver:self selector:@selector(fire) name:[self notificationName] object:[self sender]];
 }
 

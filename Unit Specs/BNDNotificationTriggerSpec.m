@@ -10,22 +10,26 @@ before(^{
     notificationCenter = [[NSNotificationCenter alloc] init];
     notificationName = @"SomeNotification";
     sender = [[NSObject alloc] init];
-    delegate = [OCMockObject mockForProtocol:@protocol(BNDTriggerDelegate)];
+    delegate = [OCMockObject niceMockForProtocol:@protocol(BNDTriggerDelegate)];
     trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:notificationCenter notificationName:notificationName sender:sender delegate:(id <BNDTriggerDelegate>)delegate];
 });
 
 when(@"started", ^{
-    before(^{
+    it(@"fires once to assign the initial value", ^{
+        [[delegate expect] triggerDidFire:trigger];
         [trigger startFiring];
+        [delegate verify];
     });
     
     it(@"fires when the notification is received from the sender", ^{
+        [trigger startFiring];
         [[delegate expect] triggerDidFire:trigger];
         [notificationCenter postNotificationName:notificationName object:sender];
         [delegate verify];
     });
 
     it(@"does not fire when the notification is received from an object other than the sender", ^{
+        [trigger startFiring];
         [[delegate reject] triggerDidFire:OCMOCK_ANY];
         [notificationCenter postNotificationName:notificationName object:[NSObject new]];
         [delegate verify];
