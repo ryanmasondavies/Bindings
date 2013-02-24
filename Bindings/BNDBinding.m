@@ -11,14 +11,14 @@
 #import "BNDTrigger.h"
 
 @interface BNDBinding ()
-@property (strong, nonatomic) BNDProperty *sourceProperty;
-@property (strong, nonatomic) BNDProperty *destinationProperty;
+@property (strong, nonatomic) id <BNDProperty> sourceProperty;
+@property (strong, nonatomic) id <BNDProperty> destinationProperty;
 @property (strong, nonatomic) NSMutableSet *triggers;
 @end
 
 @implementation BNDBinding
 
-- (id)initWithSourceProperty:(BNDProperty *)sourceProperty destinationProperty:(BNDProperty *)destinationProperty
+- (id)initWithSourceProperty:(id <BNDProperty>)sourceProperty destinationProperty:(id <BNDProperty>)destinationProperty
 {
     if (self = [self init]) {
         self.sourceProperty      = sourceProperty;
