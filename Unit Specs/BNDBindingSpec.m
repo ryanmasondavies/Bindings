@@ -8,7 +8,7 @@ __block id          mockTrigger;
 before(^{
     mockSource      = [OCMockObject niceMockForClass:[BNDValue   class]];
     mockDestination = [OCMockObject niceMockForClass:[BNDValue   class]];
-    mockTrigger     = [OCMockObject niceMockForClass:[BNDTrigger class]];
+    mockTrigger     = [OCMockObject niceMockForProtocol:@protocol(BNDTrigger)];
     binding         = [[BNDBinding alloc] initWithSource:mockSource destination:mockDestination];
 });
 

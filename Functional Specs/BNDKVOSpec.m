@@ -20,7 +20,7 @@ before(^{
     BNDValue *destinationValue = [[BNDValue alloc] initWithObject:destination keyPath:destinationKeyPath];
     
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:sourceValue destination:destinationValue];
-    BNDTrigger *trigger = [[BNDKVOTrigger alloc] initWithKeyPath:sourceKeyPath object:source delegate:binding];
+    id <BNDTrigger> trigger = [[BNDKVOTrigger alloc] initWithKeyPath:sourceKeyPath object:source delegate:binding];
     
     [binding addTrigger:trigger];
     [bindings addBinding:binding];

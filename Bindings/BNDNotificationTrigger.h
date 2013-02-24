@@ -6,10 +6,12 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "BNDTrigger.h"
+@protocol BNDTriggerDelegate;
 
 /** Watches for notifications. Not all objects use the KVO mechanism to inform of property changes, and instead use notifications. */
-@interface BNDNotificationTrigger : BNDTrigger
+@interface BNDNotificationTrigger : NSObject <BNDTrigger>
 
 /** Initializes a new instance.
  @param notificationCenter The notification center through which notifications may be received.
@@ -19,6 +21,12 @@
  @return An initialized instance. */
 - (id)initWithNotificationCenter:(NSNotificationCenter *)notificationCenter notificationName:(NSString *)notificationName sender:(id)sender delegate:(id <BNDTriggerDelegate>)delegate;
 
+/** Start listening for notifications in the notificationCenter. */
+- (void)startFiring;
+
+/** Stop listening for notifications in the notificationCenter. */
+- (void)stopFiring;
+
 /** The notification center through which notifications may be received. */
 @property (strong, nonatomic, readonly) NSNotificationCenter *notificationCenter;
 
@@ -27,5 +35,8 @@
 
 /** The object which sends the notification. Optional. */
 @property (strong, nonatomic, readonly) id sender;
+
+/** The object to be informed when a notification is received. */
+@property (weak, nonatomic) id <BNDTriggerDelegate> delegate;
 
 @end

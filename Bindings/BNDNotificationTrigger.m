@@ -7,6 +7,7 @@
 //
 
 #import "BNDNotificationTrigger.h"
+#import "BNDTriggerDelegate.h"
 
 @interface BNDNotificationTrigger ()
 @property (strong, nonatomic) NSNotificationCenter *notificationCenter;
@@ -29,7 +30,7 @@
 
 - (void)startFiring
 {
-    [super startFiring];
+    [[self delegate] triggerDidFire:self];
     [[self notificationCenter] addObserver:self selector:@selector(fire) name:[self notificationName] object:[self sender]];
 }
 

@@ -3,7 +3,7 @@ SpecBegin(BNDKVOTrigger)
 __block NSString            *keyPath;
 __block NSMutableDictionary *object;
 __block OCMockObject        *delegate;
-__block BNDTrigger          *trigger;
+__block id <BNDTrigger>      trigger;
 
 before(^{
     keyPath = @"name";

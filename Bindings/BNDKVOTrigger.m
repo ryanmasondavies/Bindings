@@ -7,6 +7,7 @@
 //
 
 #import "BNDKVOTrigger.h"
+#import "BNDTriggerDelegate.h"
 
 @interface BNDKVOTrigger ()
 @property (copy,   nonatomic) NSString *keyPath;
@@ -27,7 +28,7 @@
 
 - (void)startFiring
 {
-    [super startFiring];
+    [[self delegate] triggerDidFire:self];
     [[self object] addObserver:self forKeyPath:[self keyPath] options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:NULL];
 }
 

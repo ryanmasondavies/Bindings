@@ -24,7 +24,7 @@ before(^{
     BNDValue *destinationValue = [[BNDValue alloc] initWithObject:destination keyPath:destinationKeyPath];
     
     BNDBinding *binding = [[BNDBinding alloc] initWithSource:sourceValue destination:destinationValue];
-    BNDTrigger *trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:notificationCenter notificationName:notificationName sender:source delegate:binding];
+    id <BNDTrigger> trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:notificationCenter notificationName:notificationName sender:source delegate:binding];
     
     [binding addTrigger:trigger];
     [bindings addBinding:binding];

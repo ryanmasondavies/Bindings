@@ -29,7 +29,7 @@
     return self;
 }
 
-- (void)triggerDidFire:(BNDTrigger *)trigger
+- (void)triggerDidFire:(id <BNDTrigger>)trigger
 {
     [[self destination] assign:[[self source] retrieve]];
 }
@@ -44,12 +44,12 @@
     [[self triggers] makeObjectsPerformSelector:@selector(stopFiring)];
 }
 
-- (void)addTrigger:(BNDTrigger *)trigger
+- (void)addTrigger:(id <BNDTrigger>)trigger
 {
     [[self triggers] addObject:trigger];
 }
 
-- (void)removeTrigger:(BNDTrigger *)trigger
+- (void)removeTrigger:(id <BNDTrigger>)trigger
 {
     [[self triggers] removeObject:trigger];
 }
