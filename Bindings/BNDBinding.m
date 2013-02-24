@@ -7,23 +7,23 @@
 //
 
 #import "BNDBinding.h"
-#import "BNDValue.h"
+#import "BNDProperty.h"
 #import "BNDTrigger.h"
 
 @interface BNDBinding ()
-@property (strong, nonatomic) BNDValue *source;
-@property (strong, nonatomic) BNDValue *destination;
+@property (strong, nonatomic) BNDProperty *sourceProperty;
+@property (strong, nonatomic) BNDProperty *destinationProperty;
 @property (strong, nonatomic) NSMutableSet *triggers;
 @end
 
 @implementation BNDBinding
 
-- (id)initWithSource:(id)source destination:(id)destination
+- (id)initWithSourceProperty:(BNDProperty *)sourceProperty destinationProperty:(BNDProperty *)destinationProperty
 {
     if (self = [self init]) {
-        self.source      = source;
-        self.destination = destination;
-        self.triggers    = [NSMutableSet set];
+        self.sourceProperty      = sourceProperty;
+        self.destinationProperty = destinationProperty;
+        self.triggers            = [NSMutableSet set];
     }
     
     return self;
@@ -31,7 +31,7 @@
 
 - (void)triggerDidFire:(id <BNDTrigger>)trigger
 {
-    [[self destination] assign:[[self source] retrieve]];
+    [[self destinationProperty] setValue:[[self sourceProperty] value]];
 }
 
 - (void)bind

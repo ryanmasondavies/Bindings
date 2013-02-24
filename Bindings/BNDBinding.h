@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "BNDTriggerDelegate.h"
-@class BNDValue;
+@class BNDProperty;
 @protocol BNDTrigger;
 
 /** Defines a strict relationship between a property on the _source_ and another on the _destination_. Triggers are used to notify the binding when the source's value changes. */
 @interface BNDBinding : NSObject <BNDTriggerDelegate>
 
 /** Initializes a binding.
- @param source The value to observe. See BNDValue.
- @param destination The value to apply changes to. See BNDValue.
+ @param sourceProperty The property to observe. See BNDProperty.
+ @param destinationProperty The property to apply changes to. See BNDProperty.
  @return An initialized instance of BNDBinding. */
-- (id)initWithSource:(id)source destination:(id)destination;
+- (id)initWithSourceProperty:(BNDProperty *)sourceProperty destinationProperty:(BNDProperty *)destinationProperty;
 
 /** @param trigger The trigger to add the binding. */
  - (void)addTrigger:(id <BNDTrigger>)trigger;
@@ -32,10 +32,10 @@
 /** Releases the binding, allowing source's value to change without being applied to the destination. */
 - (void)unbind;
 
-/** The value to be observed for changes. */
-@property (strong, nonatomic, readonly) BNDValue *source;
+/** The property to be observed for changes. */
+@property (strong, nonatomic, readonly) BNDProperty *sourceProperty;
 
-/** The value to have changes applied to it. */
-@property (strong, nonatomic, readonly) BNDValue *destination;
+/** The property which changes are applied to. */
+@property (strong, nonatomic, readonly) BNDProperty *destinationProperty;
 
 @end

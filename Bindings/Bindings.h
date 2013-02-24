@@ -8,6 +8,6 @@
 
 #import "BNDBindings.h"
 #import "BNDBinding.h"
-#import "BNDValue.h"
 #import "BNDKVOTrigger.h"
 #import "BNDNotificationTrigger.h"
+#import "BNDProperty.h"

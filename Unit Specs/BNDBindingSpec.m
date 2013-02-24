@@ -1,15 +1,15 @@
 SpecBegin(BNDBinding)
 
 __block BNDBinding *binding;
-__block id          mockSource;
-__block id          mockDestination;
+__block id          mockSourceProperty;
+__block id          mockDestinationProperty;
 __block id          mockTrigger;
 
 before(^{
-    mockSource      = [OCMockObject niceMockForClass:[BNDValue   class]];
-    mockDestination = [OCMockObject niceMockForClass:[BNDValue   class]];
-    mockTrigger     = [OCMockObject niceMockForProtocol:@protocol(BNDTrigger)];
-    binding         = [[BNDBinding alloc] initWithSource:mockSource destination:mockDestination];
+    mockSourceProperty      = [OCMockObject niceMockForClass:[BNDProperty class]];
+    mockDestinationProperty = [OCMockObject niceMockForClass:[BNDProperty class]];
+    mockTrigger = [OCMockObject niceMockForProtocol:@protocol(BNDTrigger)];
+    binding     = [[BNDBinding alloc] initWithSourceProperty:mockSourceProperty destinationProperty:mockDestinationProperty];
 });
 
 when(@"bound", ^{
@@ -23,11 +23,11 @@ when(@"bound", ^{
 
 when(@"a trigger fires", ^{
     it(@"sets the value of the destination's property to the new value", ^{
-        [[[mockSource     expect] andReturn:@"some value"] retrieve];
-        [[mockDestination expect] assign:@"some value"];
+        [[[mockSourceProperty     expect] andReturn:@"some value"] value];
+        [[mockDestinationProperty expect] setValue:@"some value"];
         [binding triggerDidFire:mockTrigger];
-        [mockSource      verify];
-        [mockDestination verify];
+        [mockSourceProperty      verify];
+        [mockDestinationProperty verify];
     });
 });
 

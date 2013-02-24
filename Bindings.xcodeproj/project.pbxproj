@@ -25,8 +25,8 @@
 		945B95D716D16E69005DD328 /* libBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 945B956216D0F543005DD328 /* libBindings.a */; };
 		945B95E716D16F7B005DD328 /* BNDKVOSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B95E616D16F7B005DD328 /* BNDKVOSpec.m */; };
 		945B95EB16D17645005DD328 /* BNDNotificationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B95EA16D17645005DD328 /* BNDNotificationSpec.m */; };
-		94B1CABA16DA886C00FB2ECC /* BNDValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B1CAB916DA886C00FB2ECC /* BNDValue.m */; };
-		94B1CABC16DA898A00FB2ECC /* BNDValueSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B1CABB16DA898A00FB2ECC /* BNDValueSpec.m */; };
+		94B1CABA16DA886C00FB2ECC /* BNDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B1CAB916DA886C00FB2ECC /* BNDProperty.m */; };
+		94B1CABC16DA898A00FB2ECC /* BNDPropertySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B1CABB16DA898A00FB2ECC /* BNDPropertySpec.m */; };
 		97877269543F48D29CC8D3AD /* libPods-Functional Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 314664514FC241DB83E308F5 /* libPods-Functional Specs.a */; };
 		E34548DA5F2E4A179EC2AED8 /* libPods-Unit Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BD0572C606415381A29570 /* libPods-Unit Specs.a */; };
 /* End PBXBuildFile section */
@@ -92,9 +92,9 @@
 		945B95E316D16E99005DD328 /* Functional Specs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Functional Specs-Info.plist"; sourceTree = "<group>"; };
 		945B95E616D16F7B005DD328 /* BNDKVOSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDKVOSpec.m; sourceTree = "<group>"; };
 		945B95EA16D17645005DD328 /* BNDNotificationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDNotificationSpec.m; sourceTree = "<group>"; };
-		94B1CAB816DA886C00FB2ECC /* BNDValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDValue.h; sourceTree = "<group>"; };
-		94B1CAB916DA886C00FB2ECC /* BNDValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDValue.m; sourceTree = "<group>"; };
-		94B1CABB16DA898A00FB2ECC /* BNDValueSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDValueSpec.m; sourceTree = "<group>"; };
+		94B1CAB816DA886C00FB2ECC /* BNDProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDProperty.h; sourceTree = "<group>"; };
+		94B1CAB916DA886C00FB2ECC /* BNDProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDProperty.m; sourceTree = "<group>"; };
+		94B1CABB16DA898A00FB2ECC /* BNDPropertySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDPropertySpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,14 +173,14 @@
 				945B95B016D16548005DD328 /* BNDBindings.m */,
 				945B959716D118FF005DD328 /* BNDBinding.h */,
 				945B959816D118FF005DD328 /* BNDBinding.m */,
-				94B1CAB816DA886C00FB2ECC /* BNDValue.h */,
-				94B1CAB916DA886C00FB2ECC /* BNDValue.m */,
 				945B959F16D127ED005DD328 /* BNDTriggerDelegate.h */,
 				945B959C16D127DB005DD328 /* BNDTrigger.h */,
 				945B95A816D1318E005DD328 /* BNDKVOTrigger.h */,
 				945B95A916D1318E005DD328 /* BNDKVOTrigger.m */,
 				945B95A016D1284E005DD328 /* BNDNotificationTrigger.h */,
 				945B95A116D1284E005DD328 /* BNDNotificationTrigger.m */,
+				94B1CAB816DA886C00FB2ECC /* BNDProperty.h */,
+				94B1CAB916DA886C00FB2ECC /* BNDProperty.m */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -190,9 +190,9 @@
 			children = (
 				945B95C116D16E1A005DD328 /* BNDBindingsSpec.m */,
 				945B95C016D16E1A005DD328 /* BNDBindingSpec.m */,
-				94B1CABB16DA898A00FB2ECC /* BNDValueSpec.m */,
 				945B95C216D16E1A005DD328 /* BNDKVOTriggerSpec.m */,
 				945B95C316D16E1A005DD328 /* BNDNotificationTriggerSpec.m */,
+				94B1CABB16DA898A00FB2ECC /* BNDPropertySpec.m */,
 				945B95CB16D16E24005DD328 /* Supporting files */,
 			);
 			path = "Unit Specs";
@@ -412,7 +412,7 @@
 				945B95A216D1284E005DD328 /* BNDNotificationTrigger.m in Sources */,
 				945B95AA16D1318E005DD328 /* BNDKVOTrigger.m in Sources */,
 				945B95B116D16548005DD328 /* BNDBindings.m in Sources */,
-				94B1CABA16DA886C00FB2ECC /* BNDValue.m in Sources */,
+				94B1CABA16DA886C00FB2ECC /* BNDProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +424,7 @@
 				945B95C716D16E1A005DD328 /* BNDBindingsSpec.m in Sources */,
 				945B95C816D16E1A005DD328 /* BNDKVOTriggerSpec.m in Sources */,
 				945B95C916D16E1A005DD328 /* BNDNotificationTriggerSpec.m in Sources */,
-				94B1CABC16DA898A00FB2ECC /* BNDValueSpec.m in Sources */,
+				94B1CABC16DA898A00FB2ECC /* BNDPropertySpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
