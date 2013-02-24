@@ -1,4 +1,4 @@
-SpecBegin(BNDPropertySpec)
+SpecBegin(BNDProperty)
 
 __block id        object;
 __block NSString *keyPath;
