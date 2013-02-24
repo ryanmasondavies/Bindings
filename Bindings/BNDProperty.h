@@ -18,12 +18,6 @@
  @param value The new value for the property. */
 - (void)setValue:(id)value;
 
-/** The object on which the property exists. */
-@property (strong, nonatomic, readonly) id object;
-
-/** The key path which leads to the value of the property. */
-@property (copy, nonatomic, readonly) NSString *keyPath;
-
 @end
 
 /** Defines a property on an object by its key path. */
