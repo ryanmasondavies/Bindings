@@ -57,4 +57,9 @@
     [[self triggers] removeObject:trigger];
 }
 
+- (void)dealloc
+{
+    [self unbind];
+}
+
 @end
