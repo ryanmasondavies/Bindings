@@ -1,9 +1,12 @@
 Bindings
 ========
 
-A _binding_ defines a connection between a value on one object – the _source_ – and a value on another object: the _destination_.
+A _binding_ defines a connection between a property on one object – the _source_ – and a property on another object: the _destination_.
 
-This pattern can simplify view controllers by entirely removing the need for glue code - code which updates views from the model or vice versa. It can also be used at the model layer to enforce relationships.
+This pattern can simplify view controllers by entirely removing the need for glue code - code which updates views from the model or vice versa. It can also be used at the model layer, or the view layer, to enforce relationships.
+
+Triggers
+--------
 
 Cocoa informs a client of value changes using different methods: KVO, target-action, notifications, and delegation. For this reason, a binding is made up of multiple _triggers_, where a trigger responds to any one of these methods.
 
@@ -15,8 +18,14 @@ The code for a simple binding might look like this:
     personVC.person = [[Person alloc] initWithName:@"Jimmy"];
     personVC.bindings = [[BNDBindings alloc] init];
     
-    // Create a bind between person's name attribute and the text field's text
-    BNDBinding *binding = [[BNDBinding alloc] initWithSource:[personVC person] sourceKeyPath:@"name" destination:[personVC textField] destinationKeyPath:@"text"];
+    // Define the source property
+    BNDProperty *sourceProperty = [[BNDProperty alloc] initWithObject:[personVC person] keyPath:@"name"];
+    
+    // Define the destination property
+    BNDProperty *destinationProperty = [[BNDProperty alloc] initWithObject:[personVC textField] keyPath:@"text"];
+    
+    // Create a bind from the source property to the destination property
+    BNDBinding *binding = [[BNDBinding alloc] initWithSourceProperty:sourceProperty destinationProperty:destinationProperty];
     
     // Add a trigger to update the binding when KVO notifications are sent for person's name property
     BNDTrigger *trigger = [[BNDKVOTrigger alloc] initWithKeyPath:@"name" object:[personVC person] delegate:binding];
@@ -41,10 +50,32 @@ A trigger can update the binding when a notification is received:
 
 When the trigger receives a `UITextFieldTextDidChangeNotification`, it will update person's name using the new text.
 
+Transformers
+------------
+
+Values regularly need to be converted from one format to another, especially when being passed from the view layer to the model layer. Your user interface components may recognize data in a different format to your models, for example the user enters digits into a string, and your model accepts a number. A _transformer_ stands in place of a property object, converting values as they pass through:
+
+    ------------       ---------------       -----------       ---------------       ------------
+    | Property |  -->  | Transformer |  -->  | Binding |  -->  | Transformer |  -->  | Property |
+    ------------       ---------------       -----------       ---------------       ------------
+
+Transformers can convert the value either when it is retrieved from the source or when it is assigned to the destination - it does not matter. In the following example, `destinationProperty` is predefined as a property on an object:
+
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    destinationProperty = [[BNDStringToNumberTransformer alloc] initWithProperty:destinationProperty numberFormatter:formatter];
+
+`destinationProperty` can continue to be treated as if it defines a property on an object.
+
+Transformers may be chained by initializing a transformer with another transformer in place of the property, for example:
+
+    transformer = [[CustomTransformer alloc] initWithProperty:transformer];
+
+Currently the only built in transformer is `BNLStringToNumberTransformer`. Suggestions and contributions are welcome.
+
 Installation
 ============
 
-To install Bindings in your project, add it to your Podfile: `pod 'Bindings', '~> 0.1.0'`.
+To install Bindings in your project, add it to your Podfile: `pod 'Bindings', '~> 0.2.0'`.
 
 License
 =======
