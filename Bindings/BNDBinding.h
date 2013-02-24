@@ -8,17 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "BNDTriggerDelegate.h"
+@class BNDValue;
 
 /** Defines a strict relationship between a property on the _source_ and another on the _destination_. Triggers are used to notify the binding when the source's value changes. */
 @interface BNDBinding : NSObject <BNDTriggerDelegate>
 
 /** Initializes a binding.
- @param source The object to observe.
- @param sourceKeyPath The key path for the property to be observed on the source object.
- @param destination The object which the changes will be applied to.
- @param destinationKeyPath The key path for the property to apply the changes to. Does not need to match sourceKeyPath.
+ @param source The value to observe. See BNDValue.
+ @param destination The value to apply changes to. See BNDValue.
  @return An initialized instance of BNDBinding. */
-- (id)initWithSource:(id)source sourceKeyPath:(NSString *)sourceKeyPath destination:(id)destination destinationKeyPath:(NSString *)destinationKeyPath;
+- (id)initWithSource:(id)source destination:(id)destination;
 
 /** @param trigger The trigger to add the binding. */
  - (void)addTrigger:(BNDTrigger *)trigger;
@@ -32,16 +31,10 @@
 /** Releases the binding, allowing source's value to change without being applied to the destination. */
 - (void)unbind;
 
-/** The source object to be observed for changes. */
-@property (strong, nonatomic, readonly) id source;
+/** The value to be observed for changes. */
+@property (strong, nonatomic, readonly) BNDValue *source;
 
-/** The destination object to have changes applied to it. */
-@property (strong, nonatomic, readonly) id destination;
-
-/** The key path for the property on source to be observed. */
-@property (copy, nonatomic, readonly) NSString *sourceKeyPath;
-
-/** The key path for the property on destination to be updated. */
-@property (copy, nonatomic, readonly) NSString *destinationKeyPath;
+/** The value to have changes applied to it. */
+@property (strong, nonatomic, readonly) BNDValue *destination;
 
 @end

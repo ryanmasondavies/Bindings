@@ -1,39 +1,30 @@
-NSString * const BNDNotificationModelNameDidChange = @"BNDNotificationModelNameDidChange";
-
-@interface BNDNotificationModel : NSObject
-@property (strong, nonatomic) NSString *name;
-@end
-
-@implementation BNDNotificationModel
-
-- (void)setName:(NSString *)name
-{
-    _name = name;
-    [[NSNotificationCenter defaultCenter] postNotificationName:BNDNotificationModelNameDidChange object:self];
-}
-
-@end
-
 SpecBegin(BNDNotificationSpec)
 
 __block BNDBindings          *bindings;
-__block BNDNotificationModel *source;
+__block NSMutableDictionary  *source;
 __block NSMutableDictionary  *destination;
 __block NSString             *sourceKeyPath;
 __block NSString             *destinationKeyPath;
+__block NSNotificationCenter *notificationCenter;
+__block NSString             *notificationName;
 
 before(^{
     bindings           = [[BNDBindings alloc] init];
-    source             = [[BNDNotificationModel alloc] init];
+    source             = [NSMutableDictionary dictionary];
     destination        = [NSMutableDictionary dictionary];
     sourceKeyPath      = @"name";
     destinationKeyPath = @"first name";
+    notificationCenter = [[NSNotificationCenter alloc] init];
+    notificationName   = @"SomeNotification";
     
     [source setValue:@"Jimmy" forKey:sourceKeyPath];
     [destination setObject:@"Fred" forKey:destinationKeyPath];
     
-    BNDBinding *binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:sourceKeyPath destination:destination destinationKeyPath:destinationKeyPath];
-    BNDTrigger *trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter] notificationName:BNDNotificationModelNameDidChange sender:source delegate:binding];
+    BNDValue *sourceValue = [[BNDValue alloc] initWithObject:source keyPath:sourceKeyPath];
+    BNDValue *destinationValue = [[BNDValue alloc] initWithObject:destination keyPath:destinationKeyPath];
+    
+    BNDBinding *binding = [[BNDBinding alloc] initWithSource:sourceValue destination:destinationValue];
+    BNDTrigger *trigger = [[BNDNotificationTrigger alloc] initWithNotificationCenter:notificationCenter notificationName:notificationName sender:source delegate:binding];
     
     [binding addTrigger:trigger];
     [bindings addBinding:binding];
@@ -43,10 +34,17 @@ it(@"performs an initial update to ensure values always match", ^{
     [[destination[destinationKeyPath] should] beEqualTo:@"Jimmy"];
 });
 
-it(@"listens for notifications to update the destination's property", ^{
+it(@"updates the destination's value when a notification is received", ^{
     [source setValue:@"Bobby" forKey:sourceKeyPath];
+    [notificationCenter postNotificationName:notificationName object:source];
     NSAssert(destination[destinationKeyPath], @"");
     [[destination[destinationKeyPath] should] beEqualTo:@"Bobby"];
+});
+
+it(@"does not update until a notification is sent", ^{
+    [source setValue:@"Bobby" forKey:sourceKeyPath];
+    NSAssert(destination[destinationKeyPath], @"");
+    [[destination[destinationKeyPath] shouldNot] beEqualTo:@"Bobby"];
 });
 
 SpecEnd

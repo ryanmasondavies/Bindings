@@ -1,19 +1,15 @@
 SpecBegin(BNDBinding)
 
-__block NSMutableDictionary *source;
-__block NSString            *sourceKeyPath;
-__block NSMutableDictionary *destination;
-__block NSString            *destinationKeyPath;
-__block BNDBinding          *binding;
-__block id                   mockTrigger;
+__block BNDBinding *binding;
+__block id          mockSource;
+__block id          mockDestination;
+__block id          mockTrigger;
 
 before(^{
-    sourceKeyPath = @"name";
-    source = [[NSMutableDictionary alloc] initWithObjects:@[@"initial value"] forKeys:@[sourceKeyPath]];
-    destinationKeyPath = @"name";
-    destination = [[NSMutableDictionary alloc] initWithObjects:@[@"old value"] forKeys:@[destinationKeyPath]];
-    binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:sourceKeyPath destination:destination destinationKeyPath:destinationKeyPath];
-    mockTrigger = [OCMockObject niceMockForClass:[BNDTrigger class]];
+    mockSource      = [OCMockObject niceMockForClass:[BNDValue   class]];
+    mockDestination = [OCMockObject niceMockForClass:[BNDValue   class]];
+    mockTrigger     = [OCMockObject niceMockForClass:[BNDTrigger class]];
+    binding         = [[BNDBinding alloc] initWithSource:mockSource destination:mockDestination];
 });
 
 when(@"bound", ^{
@@ -27,10 +23,11 @@ when(@"bound", ^{
 
 when(@"a trigger fires", ^{
     it(@"sets the value of the destination's property to the new value", ^{
-        source[sourceKeyPath] = @"new value";
-        [binding triggerDidFire:(BNDTrigger *)mockTrigger];
-        NSAssert(destination[destinationKeyPath], @"");
-        [[destination[destinationKeyPath] should] beEqualTo:@"new value"];
+        [[[mockSource     expect] andReturn:@"some value"] retrieve];
+        [[mockDestination expect] assign:@"some value"];
+        [binding triggerDidFire:mockTrigger];
+        [mockSource      verify];
+        [mockDestination verify];
     });
 });
 

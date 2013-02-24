@@ -16,7 +16,10 @@ before(^{
     [source setObject:@"Jimmy" forKey:sourceKeyPath];
     [destination setObject:@"Fred" forKey:destinationKeyPath];
     
-    BNDBinding *binding = [[BNDBinding alloc] initWithSource:source sourceKeyPath:sourceKeyPath destination:destination destinationKeyPath:destinationKeyPath];
+    BNDValue *sourceValue = [[BNDValue alloc] initWithObject:source keyPath:sourceKeyPath];
+    BNDValue *destinationValue = [[BNDValue alloc] initWithObject:destination keyPath:destinationKeyPath];
+    
+    BNDBinding *binding = [[BNDBinding alloc] initWithSource:sourceValue destination:destinationValue];
     BNDTrigger *trigger = [[BNDKVOTrigger alloc] initWithKeyPath:sourceKeyPath object:source delegate:binding];
     
     [binding addTrigger:trigger];
