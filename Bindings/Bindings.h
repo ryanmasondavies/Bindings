@@ -11,3 +11,4 @@
 #import "BNDKVOTrigger.h"
 #import "BNDNotificationTrigger.h"
 #import "BNDProperty.h"
+#import "BNDStringToNumberTransformer.h"
